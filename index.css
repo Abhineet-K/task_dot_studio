@@ -1,0 +1,271 @@
+@font-face {
+  font-family: "gotham-medium";
+  src: url("/font/gotham/GothamBold.ttf"),
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background-color: #444444;
+}
+
+.container {
+  width: 90%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid orange;
+}
+
+h1,
+#title-color {
+  font-family: "gotham-medium", sans-serif;
+  font-weight: 700;
+}
+
+#title-color {
+  color: #3c65be;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px 80px;
+}
+
+.image,
+.gradientDiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+}
+
+.gradientDiv {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.8) 92%);
+  z-index: 1;
+}
+
+.backDiv {
+  position: relative;
+  width: 520px;
+  height: 348px;
+  border-radius: 20px;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.text {
+  font-family: "gotham-medium", sans-serif;
+  padding: 5px 20px;
+  position: absolute;
+  z-index: 2;
+  width: 90%;
+  height: 294px;
+  margin-top: 18px;
+  color: #FFFFFF;
+  font-size: x-large;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  transition-duration: 0.5s;
+  animation: fade-in;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.backDiv:hover .text {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fade-out;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.overlay-container {
+  position: absolute;
+  z-index: 3;
+  margin-top: 18px;
+  width: 100%;
+  height: 294px;
+}
+
+.yellowText {
+  color: rgba(255, 199, 88, 1);
+}
+
+.overlayDiv {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  background: rgba(17, 74, 141, 0.8);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: ease-in-out;
+  transition-duration: 0.5s;
+  z-index: 4;
+}
+
+.backDiv:hover .overlayDiv {
+  width: 100%;
+  height: 294px;
+  opacity: 1;
+}
+
+.overlayText {
+  position: absolute;
+  font-family: "gotham-medium";
+  font-size: x-large;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  width: 500px;
+  height: 294px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-wrap: wrap;
+  opacity: 0;
+  transition-duration: 0.5s;
+  animation: fade-out;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.backDiv:hover .overlayText {
+  opacity: 1;
+  transform: translateY(-20px);
+  transition-delay: 0.4s;
+  animation: fade-in;
+  animation-delay: 0.4s;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* For Tablets Screens */
+@media (max-width: 1095px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 10px;
+    border-radius: 15px;
+    gap: 20px;
+  }
+
+  .image-container {
+    gap: 20px 40px;
+  }
+
+  .backDiv {
+    width: 420px;
+    height: 300px;
+    border-radius: 10px;
+  }
+
+  .text {
+    bottom: 0;
+    padding: 4px 10px;
+    height: 104px;
+    margin-top: 10px;
+    font-size: larger;
+  }
+
+  .overlay-container {
+    margin-top: 10px;
+    bottom: 20px;
+  }
+
+  .backDiv:hover .overlayDiv {
+    height: 264px;
+  }
+
+  .overlayText {
+    margin: 10px;
+    width: 400px;
+    height: 264px;
+    font-size: larger;
+  }
+
+}
+
+
+/* For mobile Screens */
+@media (max-width:600px) {
+  .backDiv {
+    width: 350px;
+    height: 220px;
+    border-radius: 10px;
+  }
+
+  .text {
+    margin-inline: 5px;
+    height: 104px;
+    margin-top: 10px;
+    font-size: large;
+  }
+
+  .overlay-container {
+    margin-top: 10px;
+    bottom: 20px;
+  }
+
+  .backDiv:hover .overlayDiv {
+    height: 184px;
+  }
+
+  .overlayText {
+    margin: 10px;
+    width: 330px;
+    height: 164px;
+    font-size: large;
+  }
+
+}
